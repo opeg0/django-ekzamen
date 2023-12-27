@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <p>Штрафов.нет</p>
+        {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+            <nav>
+                <p>Здраствуйте, {{ user.username }}!</p>
+                <a href="{% url 'penalty' %}">Добавить штраф</a>
+                <a href="{% url 'logout' %}">Выйти</a>
+            </nav>
+            {% else %}
+            <nav>
+                <p>Здраствуйте, {{ user.username }}!</p>
+                <a href="{% url 'logout' %}">Выйти</a>
+            </nav>
+            {% endif %}
+        {% else %}
+        <nav>
+            <a href="{% url 'login' %}">Войти</a>
+            <a href="{% url 'register' %}">Зарегистрироваться</a>
+        </nav>
+        {% endif %}
+    </header>
+
+    <table border="1" width="100%">
+        {% for i in penalty %}
+        <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.description }}</td>
+            <td>{{ i.get_penalty_type_display }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

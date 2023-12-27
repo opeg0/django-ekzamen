@@ -1,0 +1,59 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* INDEX.HTML */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    padding: 24px;
+    background-color: bisque;
+    font-size: 24px;
+}
+
+.header>nav {
+    display: flex;
+    justify-content: space-between;
+    width: 360px;
+}
+
+.header>nav>a {
+    text-decoration: none;
+}
+
+/* LOGIN.HTML AND REGISTER.HTML */
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    left: 38%;
+    height: 400px;
+    width: 500px;
+    background-color: bisque;
+    border-radius: 10%;
+    font-size: 24px;
+}
+
+form>input {
+    margin-top: 24px;
+    padding: 4px 24px;
+    background-color: orange;
+    font-size: 24px;
+}
+form>input:hover {
+    background-color: gold;
+}
